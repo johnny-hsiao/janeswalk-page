@@ -3,7 +3,8 @@ import Slider from 'react-slick';
 
 class SimpleSlider extends React.Component {
   render () {
-    var settings = {
+    let { images } = this.props;
+    let settings = {
       dots: true,
       infinite: true,
       speed: 500,
@@ -12,18 +13,22 @@ class SimpleSlider extends React.Component {
     };
     return (
       <Slider {...settings}>
-        <div><h3>1</h3></div>
-        <div><h3>2</h3></div>
-        <div><h3>3</h3></div>
-        <div><h3>4</h3></div>
-        <div><h3>5</h3></div>
-        <div><h3>6</h3></div>
+        {/* images.map(image => <div><img src="/img/humber1.jpg" /></div>); */}
       </Slider>
     );
   }
 };
 
 export default class ImpactReport extends React.Component {
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      images: [
+        'humber1.jpg', 'humber2.jpg', 'humber3.jpg', 'humber4.jpg', 'humber5.jpg', 'humber6.jpg', 'humber7.jpg'
+      ]
+    }
+  }
   render () {
     return (
       <div className="container my_app">
@@ -50,14 +55,14 @@ export default class ImpactReport extends React.Component {
             Cummer Community Centre | Language(s): English, Korean | March 19, 2016, 2:00 PM, 2 hours
           </p>
           <div className="walk-photo">
-            <img src="/images/humber1.jpg"/>
+            <img src="/img/humber1.jpg"/>
           </div>
           <p className="walk-photo-desc">
             Above: Walk leader, Sook Chang, shows residents a prime salmon spotting area. "This is 
             the first spot I brought my friends from South Korea. Not to Niagara Falls or other tourist
             places. This is something they would never see back home."
           </p>
-          <SimpleSlider />
+          <SimpleSlider images={this.state.images} />
         </section>
         <section className="walk-details">
           <h2 className="walk-section-heading">What This Walk Was About</h2>
