@@ -1,4 +1,27 @@
 import React from 'react';
+import Slider from 'react-slick';
+
+class SimpleSlider extends React.Component {
+  render () {
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+    return (
+      <Slider {...settings}>
+        <div><h3>1</h3></div>
+        <div><h3>2</h3></div>
+        <div><h3>3</h3></div>
+        <div><h3>4</h3></div>
+        <div><h3>5</h3></div>
+        <div><h3>6</h3></div>
+      </Slider>
+    );
+  }
+};
 
 export default class ImpactReport extends React.Component {
   render () {
@@ -34,7 +57,7 @@ export default class ImpactReport extends React.Component {
             the first spot I brought my friends from South Korea. Not to Niagara Falls or other tourist
             places. This is something they would never see back home."
           </p>
-          <p className="placeholder">Carousel for photo here</p>
+          <SimpleSlider />
         </section>
         <section className="walk-details">
           <h2 className="walk-section-heading">What This Walk Was About</h2>
