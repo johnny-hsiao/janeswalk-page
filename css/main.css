@@ -7442,8 +7442,9 @@ label {
 
 
 /* Impact Report */
-.my_app {
+.container.my_app {
   background: #eee;
+  width: 80%;
 }
 
 .report-heading {
@@ -7462,4 +7463,13 @@ label {
 .print {
   float: right;
   margin: -40px 15px 0 0;
+}
+
+.walk-learnings ol {
+  margin: 0;
+  list-style: decimal;
+}
+
+.walk-learn-point {
+  margin: 16px 0;
 }

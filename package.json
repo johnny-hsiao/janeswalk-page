@@ -19,6 +19,8 @@
     "babel-loader": "5.x.x",
     "react": "0.x.x",
     "react-dom": "^15.3.2",
+    "react-slick": "^0.14.4",
+    "slick-carousel": "^1.6.0",
     "webpack": "^1.12.1"
   },
   "devDependencies": {

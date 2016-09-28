@@ -27,7 +27,7 @@ export default class ImpactReport extends React.Component {
             Cummer Community Centre | Language(s): English, Korean | March 19, 2016, 2:00 PM, 2 hours
           </p>
           <div className="walk-photo">
-            <img src=""/>
+            <img src="/images/humber1.jpg"/>
           </div>
           <p className="walk-photo-desc">
             Above: Walk leader, Sook Chang, shows residents a prime salmon spotting area. "This is 
@@ -70,24 +70,24 @@ export default class ImpactReport extends React.Component {
         </section>
         <section className="walk-learnings">
           <h2 className="walk-section-heading">TOP 10 Learnings</h2>
-          <ul>
-            <li>Local restaurant business have been booming, both small and big. The signs of restaurants and 
+          <ol>
+            <li className="walk-learn-point">Local restaurant business have been booming, both small and big. The signs of restaurants and 
             and shops were mainly in Persian, Korean, or Chinese (other than English).</li>
-            <li>Bigger chains of restaurants, coffee shops, etc. were located near subway stations. Smaller 
+            <li className="walk-learn-point">Bigger chains of restaurants, coffee shops, etc. were located near subway stations. Smaller 
             stores were located between major intersections, at lower profile buildings.</li>
-            <li>Many condominium buildings have been under construction or have already been constructed 
+            <li className="walk-learn-point">Many condominium buildings have been under construction or have already been constructed 
             within the past few years.</li>
-            <li>There is a great degree of condominium development planned for the future. Ontario and Toronto's 
+            <li className="walk-learn-point">There is a great degree of condominium development planned for the future. Ontario and Toronto's 
             official plan is urban intensification.</li>
-            <li>Urban intensification actually benefits both the city and the rural areas. Its aim is to stop 
+            <li className="walk-learn-point">Urban intensification actually benefits both the city and the rural areas. Its aim is to stop 
             urban crawling.</li>
-            <li>Some spots, such as Churchill, were vacant without any official signs of future plans.</li>
-            <li>Behind Willowdale Park, an outdoor art theater is under construction but the design of the 
+            <li className="walk-learn-point">Some spots, such as Churchill, were vacant without any official signs of future plans.</li>
+            <li className="walk-learn-point">Behind Willowdale Park, an outdoor art theater is under construction but the design of the 
             theater was facing away from the road, resulting in an unwelcoming vibe.</li>
-            <li>The pathways behind condominiums along Doris were very pleasant with mature trees and a well-
+            <li className="walk-learn-point">The pathways behind condominiums along Doris were very pleasant with mature trees and a well-
             maintained landscape.</li>
-            <li>Many residents like to walk their dogs along Doris.</li>
-          </ul>
+            <li className="walk-learn-point">Many residents like to walk their dogs along Doris.</li>
+          </ol>
         </section>
         <section className="report-footer">
           <div className="report-authors">
