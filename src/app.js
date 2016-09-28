@@ -1,4 +1,5 @@
 import React from 'react/addons';
-import Home from './home/home';
+import ReactDOM from 'react-dom';
+import ImpactReport from './ImpactReport/impact_report';
 
-React.render(<Home />, document.body);
+ReactDOM.render(<ImpactReport />, document.getElementById('root'));

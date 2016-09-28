@@ -1,13 +1,13 @@
 import React from 'react';
 import $ from 'jquery';
-import Home from './home.js';
+import ImpactReport from './impact_report.js';
  
-describe('Home', () => {
+describe('ImpactReport', () => {
 
   it('should render to the DOM', function() {
 
     //  Create the <Home /> react component.
-    var component = React.render(<Home />, document.body);
+    var component = React.render(<ImpactReport />, document.body);
 
     //  Find the DOM element for the created component.
     var node = React.findDOMNode(component);

@@ -15,9 +15,10 @@
     "url": "git://github.com/dwmkerr/react-es6-starter.git"
   },
   "dependencies": {
-    "react": "0.x.x",
     "babel": "5.x.x",
     "babel-loader": "5.x.x",
+    "react": "0.x.x",
+    "react-dom": "^15.3.2",
     "webpack": "^1.12.1"
   },
   "devDependencies": {
