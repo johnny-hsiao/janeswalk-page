@@ -19,6 +19,8 @@
     "babel-loader": "5.x.x",
     "react": "0.x.x",
     "react-dom": "^15.3.2",
+    "react-google-maps": "^4.11.0",
+    "react-simple-pie-chart": "^0.4.0",
     "react-slick": "^0.14.4",
     "webpack": "^1.12.1"
   },

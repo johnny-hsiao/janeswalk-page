@@ -7442,34 +7442,209 @@ label {
 
 
 /* Impact Report */
-.container.my_app {
-  background: #eee;
-  width: 80%;
+.container.my-app {
+  /*background: #eee;*/
+  width: 90%;
+}
+
+.placeholder {
+  background: red;
+  display: inline;
+}
+
+.report-head {
+  margin-bottom: 30px;
+}
+
+main.report-walk-story {
+  padding: 0 50px;
+}
+
+main.report-walk-story section {
+  margin-top: 25px;
+}
+
+.story-sub-subheading {
+  margin-top: 30px;
 }
 
 .report-heading {
   background: #fff600;
-  padding: 10px;
-  width: 430px;
+  padding: 5px;
+  width: 350px;
   text-align: center;
   margin: 15px auto 0;
 }
 
+.audio-toggle, .print-btn, .audio-toggle:hover, .print-btn:hover {
+  display: block;
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .audio-toggle {
   float: left;
-  margin: -40px 0 0 15px;
+  margin: -45px 0 0 15px;
+  padding-top: 7px;
 }
 
-.print {
+.audio-toggle i {
+  font-size: 19px;
+  margin-right: 4px;
+}
+
+.print-btn {
   float: right;
-  margin: -40px 15px 0 0;
+  margin: -45px 15px 0 0;
+  padding: 6px 10px;
+  border: 1px solid grey;
+  border-radius: 4px;
 }
 
-.walk-learnings ol {
+.story-title {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.walk-story p {
   margin: 0;
-  list-style: decimal;
 }
 
 .walk-learn-point {
-  margin: 16px 0;
+  margin-bottom: 16px;
+}
+
+.walk-learnings ol {
+  counter-reset:li;
+  margin-left:0;
+  padding-left:0;
+}
+
+.walk-learnings ol > li {
+  list-style:none;
+}
+
+.walk-learnings ol > li:before {
+  content:counter(li);
+  counter-increment:li;
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  border-radius: 999px;
+  display: block;
+  float: left;
+  width: 30px;
+  height: 30px;
+  line-height: 27px;
+  background: black;
+  border: 2px solid black;
+  color: #fff;
+  text-align: center;
+  margin-left: -43px;
+  margin-top: -4px;
+}
+
+.walk-link {
+  color: #08c;
+  text-decoration: underline;
+}
+
+p.walk-photo-desc {
+  margin-top: 10px;
+}
+
+.walk-photo-desc, .walk-details p, .trend-info, .walk-learn-point, .hint-text, p.walk-story-info, .story-author p {
+  font-size: 14px;
+}
+
+.walk-creators span, .walk-journalists span {
+  padding-left: 3px;
+}
+
+.walk-photo {
+  min-width: 746px;
+}
+
+.walk-photo img {
+  width: 100%;
+}
+
+p.walk-story-info {
+  margin: 14px 0;
+}
+
+.story-authors, .special-thanks {
+  float: left;
+}
+
+.story-authors {
+  margin-right: 60px;
+}
+
+.story-author {
+  margin: 5px 15px 0 0;
+  width: 80px;
+  height: 120px;
+  display: inline-block;
+}
+
+.story-author img {
+  border-radius: 50px;
+}
+
+.story-author p {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.carousel_img {
+  padding: 0 5px;
+}
+
+.carousel_container {
+  padding: 10px 20px 0;
+}
+
+.slick-next:before, .slick-prev:before {
+  color: black;
+}
+
+/* Remove google maps logos, terms and other labels */
+.gmnoprint:not(.gm-bundled-control), .gm-svpc, .gmnoprint, .gm-style-cc {
+  display: none;
+}
+
+.gm-bundled-control .gmnoprint {
+  display: block;
+}
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+a[href^="https://www.google.com/maps"]{display:none !important}
+
+/* Pie chart */
+.pie-container {
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+
+.pie-info-container {
+  float: left;
+  width: 100%;
+}
+
+.special-thanks {
+  max-width: 250px;
+  text-align: center;
+}
+
+.walk-sponsor-logo {
+  margin: 5px 15px 0 0;
+  width: 110px;
+  height: 60px;
+  display: inline-block;
+}
+
+.stats-data span {
+
 }
