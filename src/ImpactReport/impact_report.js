@@ -1,91 +1,7 @@
 import React from 'react';
-import Slider from 'react-slick';
-import {GoogleMapLoader, GoogleMap, Marker} from "react-google-maps";
+import SimpleSlider from './simple_slider.js';
+import SimpleMap from './simple_map.js'
 import PieChart from 'react-simple-pie-chart';
-
-export default function SimpleMap (props) {
-  return (
-    <section style={{height: "100%"}}>
-      <GoogleMapLoader
-        containerElement={
-          <div
-            {...props.containerElementProps}
-            style={{
-              height: '500px',
-              width: '50%',
-            }}
-          />
-        }
-        googleMapElement={
-          <GoogleMap
-            ref={(map) => console.log(map)}
-            defaultZoom={17}
-            defaultCenter={{ lat: 43.6465, lng: -79.4637 }}
-            onClick={props.onMapClick}
-          >
-            {props.markers.map((marker, index) => {
-              return (
-                <Marker
-                  {...marker}
-                  onRightclick={() => props.onMarkerRightclick(index)} />
-              );
-            })}
-          </GoogleMap>
-        }
-      />
-    </section>
-  );
-}
-
-class SimpleSlider extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render () {
-    let { images, onImageSelect } = this.props;
-    var settings = {
-      // dots: true,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      initialSlide: 0,
-      responsive: [{
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 5,
-          slidesToScroll: 1,
-          infinite: true,
-          // dots: true
-        }
-      }, {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 2,
-          infinite: true,
-        }
-      }, {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-        }
-      }]
-    };
-    return (
-      <Slider {...settings}>
-        {images.map((image) => {
-          var source = '/img/' + image;
-          return <div key={image} className="carousel_img" onClick={(e) => onImageSelect(image)}><img src={source} /></div>;
-        })}
-      </Slider>
-    );
-  }
-};
 
 export default class ImpactReport extends React.Component {
   constructor (props) {
@@ -104,6 +20,17 @@ export default class ImpactReport extends React.Component {
         key: `Taiwan`,
         defaultAnimation: 2,
       }],
+      pieData: 
+        [
+          {
+            color: '#8B008B',
+            value: 10,
+          },
+          {
+            color: '#FFA500',
+            value: 20,
+          },
+        ]
     }
     this._onImageSelect = this._onImageSelect.bind(this);
   }
@@ -175,25 +102,14 @@ export default class ImpactReport extends React.Component {
             <p className="stats-data">- 15 people attended this walk. <span>[31 average people per walk.]</span></p>
             <p className="placeholder">Placeholder</p>
             <p className="stats-data">- 10 people were New Canadians. [14 average New Canadians per walk.]</p>
-            <p className="stats-data">
             <p className="placeholder">Placeholder</p>
+            <p className="stats-data">
               - 66% of people were from the neighbourhood the walk took place in.<br />
               [50% average people attending a walk are from that neighbourhood.]
             </p>
             <div className="pie-info-container">
               <div className="pie-container">
-              <PieChart
-                slices={[
-                  {
-                    color: '#8B008B',
-                    value: 10,
-                  },
-                  {
-                    color: '#FFA500',
-                    value: 20,
-                  },
-                ]}
-              />
+              <PieChart slices={this.state.pieData} />
               </div>
               <p className="stats-data pie-info">
                 - 53% of people were on their first Jane's Walk.<br />
@@ -202,18 +118,7 @@ export default class ImpactReport extends React.Component {
             </div>
             <div className="pie-info-container">
               <div className="pie-container">
-              <PieChart
-                slices={[
-                  {
-                    color: '#8B008B',
-                    value: 10,
-                  },
-                  {
-                    color: '#FFA500',
-                    value: 20,
-                  },
-                ]}
-              />
+              <PieChart slices={this.state.pieData} />
               </div>
               <p className="stats-data pie-info">
                 - The group was mostly middle-aged, between 45 and 65 years old.<br />
