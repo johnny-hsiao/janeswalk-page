@@ -7579,13 +7579,15 @@ p.walk-story-info {
 
 .story-authors {
   margin-right: 60px;
+  width: 300px;
 }
 
 .story-author {
-  margin: 5px 15px 0 0;
+  margin: 5px 15px 10px 0;
   width: 80px;
   height: 120px;
-  display: inline-block;
+  display: inline-block; 
+  float: left;
 }
 
 .story-author img {

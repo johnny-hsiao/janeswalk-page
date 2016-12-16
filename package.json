@@ -15,13 +15,16 @@
     "url": "git://github.com/dwmkerr/react-es6-starter.git"
   },
   "dependencies": {
+    "antd": "^2.5.2",
     "babel": "5.x.x",
     "babel-loader": "5.x.x",
+    "css-loader": "^0.26.1",
     "react": "0.x.x",
     "react-dom": "^15.3.2",
     "react-google-maps": "^4.11.0",
     "react-simple-pie-chart": "^0.4.0",
     "react-slick": "^0.14.4",
+    "style-loader": "^0.13.1",
     "webpack": "^1.12.1"
   },
   "devDependencies": {
