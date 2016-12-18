@@ -44,7 +44,7 @@ export default class SimpleSlider extends React.Component {
       <Slider {...settings}>
         {images.map((photo) => {
           var source = '/img/' + photo.image;
-          return <div key={photo.image} className="carousel_img" onClick={(e) => onImageSelect(photo)}><img src={source} /></div>;
+          return <div key={photo.image} className="carousel-img" onClick={(e) => onImageSelect(photo)}><img src={source} /></div>;
         })}
       </Slider>
     );

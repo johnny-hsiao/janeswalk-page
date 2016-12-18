@@ -1,6 +1,6 @@
 export const exampleData = [
   {
-    name: 'East Scarborough Storefront Walk- Highland Creek.',
+    name: 'East Scarborough Storefront Walk - Highland Creek',
     url: 'http://janeswalk.org/canada/toronto/k-g-o-kingston-galloway-orton-park-janes-walk/',
     leader: 'Wendy Spencer',
     community_voices: [],
@@ -11,23 +11,43 @@ export const exampleData = [
     other_walks: 'Rexdale Seniors Wak the Pan Am Path',
     map_data: [
       {
-        stop: 'Starting Point', 
+        key: 'The starting point of the walk - ESS',
+        position: { lat: 43.765412, lng: -79.199695 },
         leader: [],
         participant: [],
         journalist: ['Storefront is a great place to meet community members.']
       },
       {
-        stop: 'A', 
+        key: '1st Stop: The point', 
+        position: { lat: 43.766457, lng: -79.193452 },
         leader: ['We try to find solutions to the concerns of local residents. We grow our own food, we have our own local market, we collect backpacks and school supplies for kids who need them. This is about everyone contributing and participating in our neighbourhood'],
         participant: ['Jaywalking is a part of life here.'],
         journalist: ['They mentioned that there is a high demands for it [a new crosswalk] from daily users of this route, and the nearest crossing is too far for many to walk.']
       },
       {
-        stop: 'B', 
+        key: '2nd Stop: St. Margaret Park', 
+        position: { lat: 43.767235, lng: -79.192933 },
         leader: [],
         participant: ['All the hard work pays off when you see different generations coming together to do a Jane\'s walk on a rainy Saturday morning!'],
         journalist: ['There’s a strong sense of community and belonging among the participants.']
+      },
+      {
+        key: 'The ending point of the walk', 
+        position: { lat: 43.767812, lng: -79.193027 },
+        leader: [],
+        participant: [],
+        journalist: []
       }
+    ],
+    path: [
+      { lat: 43.765412, lng: -79.199695 },
+      { lat: 43.766778, lng: -79.193569 },
+      { lat: 43.766435, lng: -79.193439 },
+      { lat: 43.766468, lng: -79.193309 },
+      { lat: 43.766799, lng: -79.193462 },
+      { lat: 43.766944, lng: -79.192816 },
+      { lat: 43.767235, lng: -79.192933 },
+      { lat: 43.767812, lng: -79.193027 },
     ],
     learnings: [
       'There is local demand for a new crosswalk on Lawrence Ave, between Andover Crescent and Kingston Road.',
@@ -59,6 +79,7 @@ export const exampleData = [
       // 'Approximately 52% of walkers were 50+',
       // 'One new comer family was also in the walk.'
     },
+    demographics_majority: 'middle-aged, between 45 and 65 years old',
     while_we_were_walking: '',
     images: [
       {
@@ -179,6 +200,7 @@ export const exampleData = [
       // '4 people were at the park for the 2nd time (1st being when we went there to scout the route!)',
       // '-Approximately 80% of walkers were seniors.',
       // 'Approximately 80% of walkers were women.'
+    demographics_majority: 'middle-aged, between 45 and 65 years old',
     while_we_were_walking: '5 cyclists and 2 joggers passed us. 1 flock of migrating birds flew overhead. 1 dog was heard barking from a house which backs on to the ravine. No dog owners were out walking, perhaps due to the cold and rain.',
     other_impacts: [
       'Walk participant: “I made a new friend at the walk, I’m going to her place after this!”',

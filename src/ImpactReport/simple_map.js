@@ -1,36 +1,57 @@
-import React from 'react';
-import {GoogleMapLoader, GoogleMap, Marker} from "react-google-maps";
+import React, { Component } from 'react';
+import {GoogleMapLoader, GoogleMap, Marker, InfoWindow} from "react-google-maps";
 
-export default function SimpleMap (props) {
-  return (
-    <section style={{height: "100%"}}>
-      <GoogleMapLoader
-        containerElement={
-          <div
-            {...props.containerElementProps}
-            style={{
-              height: '500px',
-              width: '50%',
-            }}
-          />
-        }
-        googleMapElement={
-          <GoogleMap
-            ref={(map) => console.log(map)}
-            defaultZoom={17}
-            defaultCenter={{ lat: 43.6465, lng: -79.4637 }}
-            onClick={props.onMapClick}
-          >
-            {props.markers.map((marker, index) => {
-              return (
-                <Marker
-                  {...marker}
-                  onRightclick={() => props.onMarkerRightclick(index)} />
-              );
-            })}
-          </GoogleMap>
-        }
-      />
-    </section>
-  );
+export default class SimpleMap extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <section style={{height: "100%"}}>
+        <GoogleMapLoader
+          containerElement={
+            <div
+              {...this.props.containerElementProps}
+              style={{
+                height: '400px',
+                width: '100%',
+              }}
+            />
+          }
+          googleMapElement={
+            <GoogleMap
+              ref={(map) => {
+                window.map = map; 
+                var flightPath = new google.maps.Polyline({
+                  path: this.props.path,
+                  geodesic: true,
+                  strokeColor: '#F49F29',
+                  strokeOpacity: 1.0,
+                  strokeWeight: 2
+                })
+
+                flightPath.setMap(window.map.props.map)
+              }}
+              defaultZoom={17}
+              defaultCenter={this.props.markers[0].position}
+              onClick={this.props.onMapClick}
+            >
+              {this.props.markers.map((marker, index) => {
+                return (
+                  <Marker
+                    {...marker}
+                    onRightclick={() => this.props.onMarkerRightclick(index)}>
+                    <InfoWindow style={{backgroundColor: '#f49f29'}}>
+                      {`${marker.key}`}
+                    </InfoWindow>
+                  </Marker>
+                );
+              })}
+            </GoogleMap>
+          }
+        />
+      </section>
+    );
+  }
 }

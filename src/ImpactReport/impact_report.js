@@ -7,15 +7,6 @@ import { exampleData } from './data';
 import { Button } from 'antd';
 require('antd/dist/antd.css');
 
-function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++ ) {
-      color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
-
 export default class ImpactReport extends Component {
   constructor (props) {
     super(props);
@@ -24,41 +15,6 @@ export default class ImpactReport extends Component {
       walks: exampleData,
       currentWalk: exampleData[0],
       activeImage: exampleData[0].images[0],
-      markers: [{
-        position: {
-          lat: 25.0112183,
-          lng: 121.52067570000001,
-        },
-        key: `Taiwan`,
-        defaultAnimation: 2,
-      }],
-      pieData: [
-              {
-                  value: 300,
-                  color:"#F7464A",
-                  highlight: "#FF5A5E",
-              },
-              {
-                  value: 50,
-                  color: "#46BFBD",
-                  highlight: "#5AD3D1",
-              },
-              {
-                  value: 100,
-                  color: "#FDB45C",
-                  highlight: "#FFC870",              
-              },
-              {
-                  value: 40,
-                  color: "#949FB1",
-                  highlight: "#A8B3C5",
-              },
-              {
-                  value: 120,
-                  color: "#4D5360",
-                  highlight: "#616774",
-              }
-          ]
     }
     this._onImageSelect = this._onImageSelect.bind(this);
   }
@@ -73,18 +29,22 @@ export default class ImpactReport extends Component {
       currentWalk
     } = this.state;
 
-    // convert demographics data for pieChart
+    // convert data for first janeswalk's attendees for pieChart
     let dataFirstJaneswalk = [];
-    dataFirstJaneswalk.push({value: currentWalk.stats.first_janeswalk.walk, color: '#800060'});
+    dataFirstJaneswalk.push({value: currentWalk.stats.first_janeswalk.walk, color: '#6F0564'});
     dataFirstJaneswalk.push({value: currentWalk.attendees - currentWalk.stats.first_janeswalk.walk, color: '#f49f29'});
     const dataFirstJaneswalkPct = Math.round(parseFloat(currentWalk.stats.first_janeswalk.walk * 100) / currentWalk.attendees);
     const dataFirstJaneswalkPctAvg = currentWalk.stats.first_janeswalk.avg;
 
+    // convert data for attendees from neighbourhood for pieChart
     let dataFromNeighbourhood = [];
-    dataFromNeighbourhood.push({value: currentWalk.stats.from_neighbourhood.walk, color: '#800060'});
+    dataFromNeighbourhood.push({value: currentWalk.stats.from_neighbourhood.walk, color: '#6F0564'});
     dataFromNeighbourhood.push({value: currentWalk.attendees - currentWalk.stats.from_neighbourhood.walk, color: '#f49f29'});
     const dataFromNeighbourhoodPct = Math.round(parseFloat(currentWalk.stats.from_neighbourhood.walk * 100) / currentWalk.attendees);
     const dataFromNeighbourhoodPctAvg = currentWalk.stats.from_neighbourhood.avg;
+
+    const dataWomenPct = Math.round(parseFloat(currentWalk.stats.women.walk * 100) / currentWalk.attendees);
+    const dataWomenPctAvg = currentWalk.stats.women.avg;
 
     return (
       <div className='container my-app'>
@@ -126,52 +86,65 @@ export default class ImpactReport extends Component {
               <img src={`/img/${this.state.activeImage.image}`}/>
             </div>
             <p className='walk-photo-desc'>
-              {this.state.activeImage.caption}
+              {`Above: ${this.state.activeImage.caption}`}
             </p>
-            <div className='carousel_container'>
+            <div className='carousel-container'>
               <SimpleSlider images={currentWalk.images} onImageSelect={this._onImageSelect} />
             </div>
           </section>
           <section className='walk-details'>
             <h3 className='walk-section-heading'>What This Walk Was About</h3>
-            <p>{currentWalk.description}</p>
-            <p>
+            <p className='walk-description'>{currentWalk.description}</p>
+            <p className='walk-in-this-series'>
               <span className='hint-text'>
                 [See another walk in this series: <a className='walk-link' href='#'>{currentWalk.other_walks}</a>]
               </span>
             </p>
-            <h4 className='map-instructions story-sub-subheading'>
+            <h4 className='map-instructions'>
               Mouseover the nodes below to read what was discussed on the walk.
             </h4>
-            <SimpleMap markers={this.state.markers} />
+            <SimpleMap markers={currentWalk.map_data} path={currentWalk.path} />
+            <ul style={{border: '1px solid black', padding: '5px', borderRadius: '10px', marginTop: '10px'}}>
+              <li>Placeholder</li>
+              {currentWalk.map_data.map(({ key, leader, participant, journalist }) => {
+                return (
+                  <li key={key}>
+                    <ol>
+                      <li>Spot: {key}</li>
+                      <li>Leader: {leader.join(', ')}</li>
+                      <li>Participant: {participant.join(', ')}</li>
+                      <li>Journalist: {journalist.join(', ')}</li>
+                    </ol>
+                  </li>
+                );
+              })}
+            </ul>
           </section>
           <section className='walk-stats'>
-            <h4 className='graph-instructions story-sub-subheading'>
+            <h3 className='walk-section-heading'>Quick Stats</h3>
+            <h4 className='graph-instructions'>
               Mouseover the stats below to see averages for Toronto.
             </h4>
-            {/*currentWalk.stats.map((stat) => {
-              return (
-                <p className='stats-data' key={stat}>- {stat}</p>
-              );
-            })*/}
-            <p className='stats-data' title={`${currentWalk.stats.attendees.avg} average people per walk.`}>- {currentWalk.stats.attendees.walk} people attended this walk.</p>
-            <p className='stats-data-demographics'>
-              <span className='stats-data-demographics-walk'>{'i'.repeat(currentWalk.stats.attendees.walk)}</span>
-              {'i'.repeat(currentWalk.stats.attendees.avg - currentWalk.stats.attendees.walk)}
-            </p>
-
-            <p className='stats-data' title={`${currentWalk.stats.new_canadians.avg} average New Canadians per walk.`}>- {currentWalk.stats.new_canadians.walk} people were New Canadians.</p>
-            <p className='stats-data-demographics'>
-              <span className='stats-data-demographics-walk'>{'i'.repeat(currentWalk.stats.new_canadians.walk)}</span>
-              {'i'.repeat(currentWalk.stats.new_canadians.avg - currentWalk.stats.new_canadians.walk)}
-            </p>
-            
+            <div className="stats-data-container">
+              <p title={`${currentWalk.stats.attendees.avg} average people per walk.`}>- {currentWalk.stats.attendees.walk} people attended this walk.</p>
+              <p className='stats-data-demographics'>
+                <span className='stats-data-demographics-walk'>{'i'.repeat(currentWalk.stats.attendees.walk)}</span>
+                {'i'.repeat(currentWalk.stats.attendees.avg - currentWalk.stats.attendees.walk)}
+              </p>
+            </div>
+            <div className="stats-data-container">
+              <p title={`${currentWalk.stats.new_canadians.avg} average New Canadians per walk.`}>- {currentWalk.stats.new_canadians.walk} people were New Canadians.</p>
+              <p className='stats-data-demographics'>
+                <span className='stats-data-demographics-walk'>{'i'.repeat(currentWalk.stats.new_canadians.walk)}</span>
+                {'i'.repeat(currentWalk.stats.new_canadians.avg - currentWalk.stats.new_canadians.walk)}
+              </p>
+            </div>
             { currentWalk.stats && currentWalk.stats.from_neighbourhood ?
               <div className='pie-info-container'>
                 <div className='pie-container'>
                   <PieChart data={dataFromNeighbourhood} options={{responsive:true}} height='60' width='60' />
                 </div>
-                <p className='stats-data pie-info' title={`${dataFromNeighbourhoodPctAvg}% average people attending a walk are from that neighbourhood`}>
+                <p className='pie-info' title={`${dataFromNeighbourhoodPctAvg}% average people attending a walk are from that neighbourhood`}>
                   - {`${dataFromNeighbourhoodPct}% of people were from the neighbourhood the walk took place in.`}<br />
                 </p>
               </div>
@@ -182,48 +155,38 @@ export default class ImpactReport extends Component {
                 <div className='pie-container'>
                   <PieChart data={dataFirstJaneswalk} options={{responsive:true}} height='60' width='60' />
                 </div>
-                <p className='stats-data pie-info' title={`${dataFirstJaneswalkPctAvg}% average people on a walk are new to Jane's Walk.`}>
+                <p className='pie-info' title={`${dataFirstJaneswalkPctAvg}% average people on a walk are new to Jane's Walk.`}>
                   - {`${dataFirstJaneswalkPct}% of people were on their first Jane's Walk.`}<br />
                 </p>
               </div>
               : null
             }
-            <div className='pie-info-container'>
-              <div className='pie-container'>
-                <PieChart data={this.state.pieData} options={{responsive:true}} height='60' width='60' />
-              </div>
-              <p className='stats-data pie-info'>
-                - The group was mostly middle-aged, between 45 and 65 years old.<br />
-                [Most people on Jane's Walks in Toronto are between 45 and 65 years old.]
-              </p>
-            </div>
-            <p className='stats-data'>
-              - There were 50% more women than men.
-              [There are 50% more women than men on average in Jane's Walks in Toronto.]
+            <p className='other-stats' title="Most people on Jane's Walks in Toronto are between 45 and 65 years old.">
+              - {`The group was mostly ${currentWalk.demographics_majority}.`}
             </p>
-            <h4 className='graph-trends story-sub-subheading'>
+            <p className='other-stats' title={`There are ${dataWomenPctAvg}% more women than men on average in Jane's Walks in Toronto.`}>
+              - {`There were ${dataWomenPct}% more women than men.`}
+            </p>
+            <h4 className='graph-trends'>
               Other noticeable trends
             </h4>
             <p className='trend-info'>
-              <strong>Among the group:</strong> 1 public servant, 1 architect, 2 teachers, 2 students, 2 hikers, 1 photographer, 
-              1 runner.
+              <strong>Among the group:</strong> 1 public servant, 1 architect, 2 teachers, 2 students, 2 hikers, 1 photographer, 1 runner.
             </p>
             <p className='trend-info'>
-              <strong>While we were walking:</strong> {currentWalk.while_we_were_walking}</p>
+              <strong>While we were walking:</strong> {(currentWalk.while_we_were_walking) ? currentWalk.while_we_were_walking : 'n/a'}</p>
           </section>
           <section className='walk-learnings'>
             <h3 className='walk-section-heading'>TOP 10 Learnings</h3>
             <ol>
               {currentWalk.learnings.map((learning) => {
-                return (
-                  <li className='walk-learn-point' key={learning}>{learning}</li>
-                );
+                return <li className='walk-learn-point' key={learning}>{learning}</li>;
               })}
             </ol>
           </section>
           <section className='report-footer clearfix'>
             <div className='story-authors'>
-              <h4 className='story-authurs story-sub-subheading'>
+              <h4 className='story-authurs'>
                 WRITTEN BY:
               </h4>
               {currentWalk.journalists.map((journalist) => {
@@ -236,7 +199,7 @@ export default class ImpactReport extends Component {
               })}
             </div>
             <div className='special-thanks'>
-              <h4 className='special-thanks-heading story-sub-subheading'>
+              <h4 className='special-thanks-heading'>
                 SPECIAL THANKS TO:
               </h4>
               <div className='walk-sponsor-logo'>

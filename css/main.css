@@ -7441,91 +7441,185 @@ label {
   margin-top: 0; }
 
 
+
 /* Impact Report */
 .container.my-app {
   width: 90%;
 }
-
-.placeholder {
-  background: red;
-  display: inline;
+main.report-walk-story {
+  padding: 0 50px;
+  color: black;
+}
+main.report-walk-story section {
+  margin-top: 30px;
+}
+.report-walk-story h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.report-walk-story p, .walk-learnings li {
+  font-size: 14px;
+}
+.walk-story p {
+  margin: 0;
 }
 
 .report-head {
   margin-bottom: 30px;
 }
-
   .report-heading {
     background: #fff600;
     padding: 5px;
-    width: 350px;
+    width: 330px;
     text-align: center;
     margin: 15px auto 0;
   }
+  .audio-toggle, .print-btn, .audio-toggle:hover, .print-btn:hover {
+    display: block;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .audio-toggle {
+    float: left;
+    margin: -45px 0 0 15px;
+    padding-top: 7px;
+  }
+  .audio-toggle i {
+    font-size: 19px;
+    margin-right: 4px;
+  }
+  .print-btn {
+    float: right;
+    margin: -45px 15px 0 0;
+    padding: 6px 10px;
+    border: 1px solid grey;
+    border-radius: 4px;
+  }
+  .story-title {
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
 
-main.report-walk-story {
-  padding: 0 50px;
+.report-walk-story .walk-creators, .report-walk-story .walk-journalists {
+  font-size: 16px;
 }
-
-main.report-walk-story section {
-  margin-top: 25px;
+.report-walk-story .hint-text {
+  font-size: 14px;
 }
-
-.story-sub-subheading {
-  margin-top: 30px;
+.hint-text {
+  padding-left: 3px;
 }
-
-
-
-.audio-toggle, .print-btn, .audio-toggle:hover, .print-btn:hover {
-  display: block;
-  color: black;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.audio-toggle {
-  float: left;
-  margin: -45px 0 0 15px;
-  padding-top: 7px;
-}
-
-.audio-toggle i {
-  font-size: 19px;
-  margin-right: 4px;
-}
-
-.print-btn {
-  float: right;
-  margin: -45px 15px 0 0;
-  padding: 6px 10px;
-  border: 1px solid grey;
-  border-radius: 4px;
-}
-
-.story-title {
+.walk-link {
+  color: #08c;
   text-decoration: underline;
-  font-weight: 500;
+}
+.walk-story-info {
+  margin: 14px 0;
 }
 
-.walk-story p {
-  margin: 0;
+/* Image */
+.walk-photo {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  overflow: hidden;
+}
+.walk-photo img {
+  display: block;
+  margin: auto;
+}
+.walk-story > .walk-photo-desc {
+  margin-top: 10px;
+  height: 45px;
 }
 
-.walk-learn-point {
-  margin-bottom: 16px;
+/* Carousel */
+.carousel-container {
+  padding: 10px 20px 0;
+}
+.carousel-container img {
+  max-height: 98px;
+  display: block;
+  margin: auto;
+}
+.carousel-img {
+  padding: 0 5px;
+  background: #eee;
+}
+.slick-next:before, .slick-prev:before {
+  color: black;
 }
 
+/* What This Walk Was About */
+.walk-details > .walk-description, .walk-section-heading {
+  margin-bottom: 10px;
+}
+.walk-in-this-series {
+  margin-bottom: 30px;
+}
+
+/* Google Maps: Remove google maps logos, terms and other labels */
+.gmnoprint:not(.gm-bundled-control), .gm-svpc, .gmnoprint, .gm-style-cc {
+  display: none;
+}
+.gm-bundled-control .gmnoprint {
+  display: block;
+}
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+a[href^="https://www.google.com/maps"]{display:none !important}
+
+/* Quick Stats */
+.stats-data-container {
+  margin-bottom: 10px;
+}
+.stats-data-container > .stats-data-demographics {
+  font-size: 38px;
+  font-family: Varela Round, sans-serif;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #a8a8a8;
+  padding-left: 7px;
+}
+.stats-data-demographics-walk {
+  color: #f49f29;
+}
+/* Pie chart */
+.pie-container {
+  width: 60px;
+  height: 60px;
+  float: left;
+}
+.pie-info-container {
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-left: 40px;
+}
+.pie-info {
+  padding: 0 0 0 20px;
+  line-height: 60px;
+  float: left;
+}
+.other-stats {
+  margin-bottom: 10px;
+}
+.graph-trends {
+  margin-top: 30px;  
+}
+
+/* Top 10 Learnings */
 .walk-learnings ol {
   counter-reset:li;
   margin-left:0;
   padding-left:0;
 }
-
 .walk-learnings ol > li {
   list-style:none;
 }
-
 .walk-learnings ol > li:before {
   content:counter(li);
   counter-increment:li;
@@ -7536,7 +7630,7 @@ main.report-walk-story section {
   float: left;
   width: 30px;
   height: 30px;
-  line-height: 27px;
+  line-height: 25px;
   background: black;
   border: 2px solid black;
   color: #fff;
@@ -7544,45 +7638,18 @@ main.report-walk-story section {
   margin-left: -43px;
   margin-top: -4px;
 }
-
-.walk-link {
-  color: #08c;
-  text-decoration: underline;
+.walk-learn-point {
+  margin-bottom: 16px;
 }
 
-p.walk-photo-desc {
-  margin-top: 10px;
-  height: 45px;
-}
-
-.walk-photo-desc, .walk-details p, .trend-info, .walk-learn-point, .hint-text, p.walk-story-info, .story-author p {
-  font-size: 14px;
-}
-
-.walk-photo {
-  min-width: 746px;
-  max-height: 500px;
-  overflow: hidden;
-}
-
-.walk-photo img {
-  display: block;
-  margin: auto;
-}
-
-p.walk-story-info {
-  margin: 14px 0;
-}
-
+/* Authors and Special thanks */
 .story-authors, .special-thanks {
   float: left;
 }
-
 .story-authors {
   margin-right: 60px;
   width: 300px;
 }
-
 .story-author {
   margin: 5px 15px 10px 0;
   width: 80px;
@@ -7590,90 +7657,17 @@ p.walk-story-info {
   display: inline-block; 
   float: left;
 }
-
 .story-author img {
   border-radius: 50px;
 }
-
 .story-author p {
   margin-top: 12px;
   text-align: center;
 }
-
-.carousel_img {
-  padding: 0 5px;
-  background: #eee;
-}
-
-.carousel_container {
-  padding: 10px 20px 0;
-/*  max-height: 700px;
-  overflow: hidden;*/
-}
-
-.carousel_container img {
-  max-height: 98px;
-  display: block;
-  margin: auto;
-}
-
-/*.slider {margin: 0;}
-.slider .slide {width: 100%; height: 100%;}*/
-.slick-next:before, .slick-prev:before {
-  color: black;
-}
-
-/* Remove google maps logos, terms and other labels */
-.gmnoprint:not(.gm-bundled-control), .gm-svpc, .gmnoprint, .gm-style-cc {
-  display: none;
-}
-
-.gm-bundled-control .gmnoprint {
-  display: block;
-}
-a[href^="http://maps.google.com/maps"]{display:none !important}
-a[href^="https://maps.google.com/maps"]{display:none !important}
-a[href^="https://www.google.com/maps"]{display:none !important}
-
-
-.population-graph {
-  color: grey;
-}
-
-.stats-data-demographics {
-  font-size: 38px;
-  font-family: Varela Round, sans-serif;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: #a8a8a8;
-}
-
-.stats-data-demographics-walk {
-  color: #f49f29;
-}
-
-/* Pie chart */
-.pie-container {
-  width: 60px;
-  height: 60px;
-  float: left;
-}
-
-.pie-info-container {
-  float: left;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.pie-info {
-  padding: 10px 0 0 85px;
-}
-
 .special-thanks {
   max-width: 250px;
   text-align: center;
 }
-
 .walk-sponsor-logo {
   margin: 5px 15px 0 0;
   width: 110px;
