@@ -1,5 +1,6 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 
@@ -19,9 +20,15 @@ module.exports = {
         test: /\.jsx?$/,      
         loader: 'babel-loader',
         include: path.resolve(__dirname, '../src')
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style', 'css?-url'),
       }
     ]
   },
+
+  postcss: () => [precss],
 
   //  Configure the plugins. We copy the index.html
   //  file to the build folder.
@@ -29,6 +36,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/index.html'),
       inject: 'body' // Inject webpack scripts into the body.
-    })
+    }),
+    new ExtractTextPlugin('../css/janeswalk.css', { allChunks: true }),
   ]
 };

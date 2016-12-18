@@ -38,7 +38,7 @@ export const exampleData = [
       'The church in St.Margaret’s Park is an important hub for community activities.',
       'Residents are interested in local growing initiatives and community kitchens.'
     ],
-    approximate_attendees: 23,
+    attendees: 23,
     demographics: {
       kids: 2,
       teens: 1,
@@ -46,12 +46,19 @@ export const exampleData = [
       thirties_forties: 5,
       over_fifty: 12
     },
-    stats: [
-      '12 people had never been on a Jane\'s Walk before.',
-      'Number from neighbourhood: 18 = 78%',
-      'Approximately 52% of walkers were 50+',
-      'One new comer family was also in the walk.'
-    ],
+    stats: {
+      attendees: { walk: 23, avg: 31 },
+      new_canadians: { walk: 10, avg: 14 },
+      from_neighbourhood: { walk: 18, avg: 19 },
+      first_janeswalk: { walk: 12, avg: 51 },
+      middle_aged: { walk: 12, avg: 51 },
+      women: { walk: 12, avg: 51 }
+
+      // '12 people had never been on a Jane\'s Walk before.',
+      // 'Number from neighbourhood: 18 = 78%',
+      // 'Approximately 52% of walkers were 50+',
+      // 'One new comer family was also in the walk.'
+    },
     while_we_were_walking: '',
     images: [
       {
@@ -155,16 +162,23 @@ export const exampleData = [
       'Lagos, Nigeria is surrounded by water, but there is more active engagement with the water around the city- people are constantly fishing, catching shrimp and crabs, and even ducks, for eating or selling in the market.',
       'Yoga breathing exercises are great for calming the body and releasing toxins.',
     ],
-    approximate_attendees: 40,
+    attendees: 40,
     demographics: {},
-    stats: [
-      '11 people had never been on a Jane\'s Walk before.',
-      'Approximately 85% of the walkers were from the neighborhood.',
-      '5 people were at the park for the first time.',
-      '4 people were at the park for the 2nd time (1st being when we went there to scout the route!)',
-      '-Approximately 80% of walkers were seniors.',
-      'Approximately 80% of walkers were women.'
-    ],
+    stats: {
+      attendees: { walk: 40, avg: 31 },
+      new_canadians: { walk: 10, avg: 14 },
+      from_neighbourhood: { walk: 34, avg: 19 },
+      first_janeswalk: { walk: 11, avg: 12 },
+      middle_aged: { walk: 32, avg: 13 },
+      women: { walk: 32, avg: 12 }
+    },
+
+      // '11 people had never been on a Jane\'s Walk before.',
+      // 'Approximately 85% of the walkers were from the neighborhood.',
+      // '5 people were at the park for the first time.',
+      // '4 people were at the park for the 2nd time (1st being when we went there to scout the route!)',
+      // '-Approximately 80% of walkers were seniors.',
+      // 'Approximately 80% of walkers were women.'
     while_we_were_walking: '5 cyclists and 2 joggers passed us. 1 flock of migrating birds flew overhead. 1 dog was heard barking from a house which backs on to the ravine. No dog owners were out walking, perhaps due to the cold and rain.',
     other_impacts: [
       'Walk participant: “I made a new friend at the walk, I’m going to her place after this!”',

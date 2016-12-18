@@ -7443,7 +7443,6 @@ label {
 
 /* Impact Report */
 .container.my-app {
-  /*background: #eee;*/
   width: 90%;
 }
 
@@ -7455,6 +7454,14 @@ label {
 .report-head {
   margin-bottom: 30px;
 }
+
+  .report-heading {
+    background: #fff600;
+    padding: 5px;
+    width: 350px;
+    text-align: center;
+    margin: 15px auto 0;
+  }
 
 main.report-walk-story {
   padding: 0 50px;
@@ -7468,13 +7475,7 @@ main.report-walk-story section {
   margin-top: 30px;
 }
 
-.report-heading {
-  background: #fff600;
-  padding: 5px;
-  width: 350px;
-  text-align: center;
-  margin: 15px auto 0;
-}
+
 
 .audio-toggle, .print-btn, .audio-toggle:hover, .print-btn:hover {
   display: block;
@@ -7551,22 +7552,22 @@ main.report-walk-story section {
 
 p.walk-photo-desc {
   margin-top: 10px;
+  height: 45px;
 }
 
 .walk-photo-desc, .walk-details p, .trend-info, .walk-learn-point, .hint-text, p.walk-story-info, .story-author p {
   font-size: 14px;
 }
 
-.walk-creators span, .walk-journalists span {
-  padding-left: 3px;
-}
-
 .walk-photo {
   min-width: 746px;
+  max-height: 500px;
+  overflow: hidden;
 }
 
 .walk-photo img {
-  width: 100%;
+  display: block;
+  margin: auto;
 }
 
 p.walk-story-info {
@@ -7601,12 +7602,23 @@ p.walk-story-info {
 
 .carousel_img {
   padding: 0 5px;
+  background: #eee;
 }
 
 .carousel_container {
   padding: 10px 20px 0;
+/*  max-height: 700px;
+  overflow: hidden;*/
 }
 
+.carousel_container img {
+  max-height: 98px;
+  display: block;
+  margin: auto;
+}
+
+/*.slider {margin: 0;}
+.slider .slide {width: 100%; height: 100%;}*/
 .slick-next:before, .slick-prev:before {
   color: black;
 }
@@ -7628,10 +7640,22 @@ a[href^="https://www.google.com/maps"]{display:none !important}
   color: grey;
 }
 
+.stats-data-demographics {
+  font-size: 38px;
+  font-family: Varela Round, sans-serif;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #a8a8a8;
+}
+
+.stats-data-demographics-walk {
+  color: #f49f29;
+}
+
 /* Pie chart */
 .pie-container {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   float: left;
 }
 
