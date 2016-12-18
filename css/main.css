@@ -7460,9 +7460,6 @@ main.report-walk-story section {
 .report-walk-story p, .walk-learnings li {
   font-size: 14px;
 }
-.walk-story p {
-  margin: 0;
-}
 
 .report-head {
   margin-bottom: 30px;

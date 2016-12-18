@@ -102,8 +102,8 @@ export default class ImpactReport extends Component {
             </p>
             <h4 className='map-instructions'>
               Mouseover the nodes below to read what was discussed on the walk.
-            </h4>
-            <SimpleMap markers={currentWalk.map_data} path={currentWalk.path} />
+            </h4>            
+            <SimpleMap markers={currentWalk.map_data} path={currentWalk.path} redraw />
             <ul style={{border: '1px solid black', padding: '5px', borderRadius: '10px', marginTop: '10px'}}>
               <li>Placeholder</li>
               {currentWalk.map_data.map(({ key, leader, participant, journalist }) => {

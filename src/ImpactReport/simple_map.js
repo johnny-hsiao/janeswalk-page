@@ -31,7 +31,7 @@ export default class SimpleMap extends Component {
                   strokeWeight: 2
                 })
 
-                flightPath.setMap(window.map.props.map)
+                flightPath.setMap(window.map.props.map);
               }}
               defaultZoom={17}
               defaultCenter={this.props.markers[0].position}
