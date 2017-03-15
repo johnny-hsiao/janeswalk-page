@@ -9,7 +9,6 @@ export default class SimpleSlider extends React.Component {
   render () {
     let { images, onImageSelect } = this.props;
     var settings = {
-      // dots: true,
       infinite: false,
       speed: 500,
       slidesToShow: 4,
@@ -21,7 +20,6 @@ export default class SimpleSlider extends React.Component {
           slidesToShow: 5,
           slidesToScroll: 1,
           infinite: true,
-          // dots: true
         }
       }, {
         breakpoint: 600,
